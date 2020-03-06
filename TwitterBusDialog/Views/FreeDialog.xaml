@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="TwitterBusDialog.Views.FreeDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    <Grid>
+        <Image Source="{Binding ?}"/>
+        
+    </Grid>
+</UserControl>
