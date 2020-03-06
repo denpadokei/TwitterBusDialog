@@ -5,13 +5,15 @@
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Margin="20" VerticalAlignment="Center">
-            <Image Source="{Binding ImageSource}" VerticalAlignment="Center"/>
-            <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <DockPanel Grid.Row="0" Margin="5" VerticalAlignment="Center">
+            <Image Source="{Binding ImageSource}" VerticalAlignment="Center" Margin="10"/>
+            <TextBlock Text="{Binding Message}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </DockPanel>
-        <Button Grid.Row="1" Margin="20" Content="OK" Command="{Binding CloseCommand}" Width="75" Height="20"/>
+        <Grid Grid.Row="1">
+            <Button Grid.Column="0" Margin="20" Content="OK" Command="{Binding CloseCommand}" Width="75" Height="20"/>
+        </Grid>
     </Grid>
 </UserControl>
