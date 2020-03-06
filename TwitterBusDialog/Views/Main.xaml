@@ -1,15 +1,45 @@
 ﻿<UserControl x:Class="TwitterBusDialog.Views.Main"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converter="clr-namespace:PokemonApp.Core.Converters;assembly=TwitterBusDialog.Core"
              xmlns:prism="http://prismlibrary.com/"             
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:viewmodel="clr-namespace:TwitterBusDialog.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="500" d:DesignHeight="250"
+             d:DataContext="{d:DesignInstance {x:Type viewmodel:MainViewModel}, IsDesignTimeCreatable=True}" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converter:EnumDisplayConverter x:Key="EnumConv"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <Button Content="OK" Command="{Binding OKDialogCommand}" Width="75"  Margin="40"/>
-            <Button Content="OK" Command="{Binding OKDialogCommand}" Width="75"  Margin="40"/>
-            <Button Content="OK" Command="{Binding OKDialogCommand}" Width="75"  Margin="40"/>
-            <Button Content="OK" Command="{Binding OKDialogCommand}" Width="75"  Margin="40"/>
-            <Button Content="OK" Command="{Binding OKDialogCommand}" Width="75"  Margin="40"/>
+            <DockPanel Margin="15">
+                <TextBlock Text="ダイアログタイトル" Width="120"/>
+                <TextBox Text="{Binding DialogTitle}" Width="300"/>
+            </DockPanel>
+            <DockPanel Margin="15">
+                <TextBlock Text="ダイアログメッセージ"  Width="120"/>
+                <TextBox Text="{Binding DialogMessage}" Width="300"/>
+            </DockPanel>
+            <Grid Margin="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DockPanel Grid.Column="0">
+                    <TextBlock Text="アイコン" VerticalAlignment="Center" />
+                    <ComboBox ItemsSource="{Binding IconList}" DisplayMemberPath="Key" SelectedValue="{Binding Icon}" SelectedValuePath="Value" Width="75"/>
+                </DockPanel>
+                <DockPanel Grid.Column="1">
+                    <TextBlock Text="ボタン" VerticalAlignment="Center" />
+                    <ComboBox ItemsSource="{Binding ButtonList}" DisplayMemberPath="Key" SelectedValue="{Binding Button}" SelectedValuePath="Value" Width="160"/>
+                </DockPanel>
+            </Grid>
+            <Button Content="表示！" Command="{Binding ShowDialogCommand}" Width="75"  Margin="5"/>
         </StackPanel>
     </Grid>
 </UserControl>

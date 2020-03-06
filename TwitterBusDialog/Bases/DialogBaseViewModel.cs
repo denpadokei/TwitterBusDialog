@@ -81,7 +81,7 @@ namespace TwitterBusDialog.Bases
             this.Message = parameters.GetValue<string>("Message");
             this.Icon = parameters.GetValue<MessageBoxIcon>("Icon");
 
-            var bitmap = new Bitmap(50,50);
+            var bitmap = new Bitmap(40,40);
             var g = Graphics.FromImage(bitmap);
             switch (this.Icon) {
                 case MessageBoxIcon.Question:

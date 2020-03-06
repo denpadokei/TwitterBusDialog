@@ -1,9 +1,10 @@
 ﻿<Window x:Class="TwitterBusDialog.Views.CustomDialogWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:prism="http://prismlibrary.com/"
+        Title="{Binding Title}"
         WindowStartupLocation="CenterOwner"
-             prism:ViewModelLocator.AutoWireViewModel="True" Width="393" Height="242">
+             prism:ViewModelLocator.AutoWireViewModel="True" Width="393" Height="242" MinWidth="393" MinHeight="242">
     <Grid>
             
     </Grid>
